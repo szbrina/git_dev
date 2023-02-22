@@ -56,26 +56,25 @@ def isPalindrome(phrase):
         
         if i < int(half):
             
-            s.addBack(letter)
+            s.add_rear(letter)
             i+=1
         elif even == True and i >= int(half):
-            #print(" Lol " + letter)
-            bob = s.removeBack()
+            phr = s.remove_rear()
             
-            if(bob != letter):
+            if(phr != letter):
                 return False
             i+=1
         elif even == False and i > int(half):
             #print(" Lol " + letter)
-            bob = s.removeBack()
+            phr = s.remove_rear()
             
-            if(bob != letter):
+            if(phr != letter):
                 return False
             i+=1
         else:
             i+=1
 
-    return s.isEmpty()
+    return s.is_empty()
 
 def main():
     print("Running the palindrome checker!")

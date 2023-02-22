@@ -94,6 +94,9 @@ class Deque(object):
         if (len(self.deque) > 0):
             return self.deque.pop()
 
+    def remove_rear(self):
+        if (len(self.deque) > 0):
+            return self.deque.pop(-1)
 
     #adds to the tailend/rearend
     def add_rear(self, item):
