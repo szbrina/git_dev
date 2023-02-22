@@ -78,6 +78,42 @@ def isPalindrome(phrase):
     return s.isEmpty()
 
 def main():
+    print("Running the palindrome checker!")
+    print("Check: A man, a plan, a canal: PANAMA!")
+    if(str(isPalindrome("A man, a plan, a canal: PANAMA!")) == True):
+        print("Is a palindrome")
+    else:
+        print("Not a palindrome")
+    print("Check: Hannah")
+    if(str(isPalindrome("Hannah")) == True):
+        print("Is a palindrome")
+    else:
+        print("Not a palindrome")
+    
+    print("Check: race car")
+    if(str(isPalindrome("race car")) == True):
+        print("Is a palindrome")
+    else:
+        print("Not a palindrome")
+    
+    print("Entering strict mode... ")
+    setStrictMode()
+    print("Check: A man, a plan, a canal: PANAMA!")
+    if(str(isPalindrome("A man, a plan, a canal: PANAMA!")) == True):
+        print("Is a palindrome")
+    else:
+        print("Not a palindrome")
+
+    if(str(isPalindrome("Hannah")) == True):
+        print("Is a palindrome")
+    else:
+        print("Not a palindrome")
+    
+    print("Check: race car")
+    if(str(isPalindrome("race car")) == True):
+        print("Is a palindrome")
+    else:
+        print("Not a palindrome")
 
 
     
