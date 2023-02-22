@@ -25,6 +25,11 @@ def setStrictMode():
     global strict_mode
     strict_mode = True
     
+def sanitize(phrase, newexpr):
+    """You may wish to write an additional helper method sanitize(phrase) that will produce a new, "sanitized" version of a phrase that doesn't have any spaces, punctuation, or uppercase letters in it. This method can be useful when "strict mode" is off."""
+    for l in phrase:
+            if l != " " and l != "," and l != "." and l != "'":
+                newexpr += l
 
 def isPalindrome(phrase):
     """
@@ -37,10 +42,9 @@ def isPalindrome(phrase):
         b = False
     even = False
     expr = ""
+    #when in strict mode, must 
     if b == False:
-        for l in phrase:
-            if l != " " and l != "," and l != "." and l != "'":
-                expr += l
+        sanitize(phrase, expr)
     else:
         expr = phrase
 
@@ -49,7 +53,7 @@ def isPalindrome(phrase):
     i = 0
     s = Deque()
     for l in expr:
-        
+        # going through each letter in the expression 
         letter = l.lower()
         
         half = len(expr)/2    
@@ -60,12 +64,12 @@ def isPalindrome(phrase):
             i+=1
         elif even == True and i >= int(half):
             pal = s.remove_rear()
-            
+            #print(" palindrome " + letter)
             if(pal != letter):
                 return False
             i+=1
         elif even == False and i > int(half):
-            #print(" Lol " + letter)
+            #print(" palindrome " + letter)
             pal = s.remove_rear()
             
             if(pal != letter):
@@ -79,18 +83,18 @@ def isPalindrome(phrase):
 def main():
     print("Running the palindrome checker!")
     print("Check: A man, a plan, a canal: PANAMA!")
-    if(str(isPalindrome("A man, a plan, a canal: PANAMA!")) == True):
+    if(str(isPalindrome("A man, a plan, a canal: PANAMA!"))):
         print("Is a palindrome")
     else:
         print("Not a palindrome")
     print("Check: Hannah")
-    if(str(isPalindrome("Hannah")) == True):
+    if(str(isPalindrome("Hannah"))):
         print("Is a palindrome")
     else:
         print("Not a palindrome")
     
     print("Check: race car")
-    if(str(isPalindrome("race car")) == True):
+    if(str(isPalindrome("race car"))):
         print("Is a palindrome")
     else:
         print("Not a palindrome")
@@ -98,12 +102,12 @@ def main():
     print("Entering strict mode... ")
     setStrictMode()
     print("Check: A man, a plan, a canal: PANAMA!")
-    if(str(isPalindrome("A man, a plan, a canal: PANAMA!")) == True):
+    if(str(isPalindrome("A man, a plan, a canal: PANAMA!"))):
         print("Is a palindrome")
     else:
         print("Not a palindrome")
 
-    if(str(isPalindrome("Hannah")) == True):
+    if(str(isPalindrome("Hannah"))):
         print("Is a palindrome")
     else:
         print("Not a palindrome")
