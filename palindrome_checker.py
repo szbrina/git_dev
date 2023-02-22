@@ -25,9 +25,10 @@ def setStrictMode():
     global strict_mode
     strict_mode = True
     
-def sanitize(phrase, newexpr):
+def sanitize(phrase):
     """You may wish to write an additional helper method sanitize(phrase) that will produce a new, "sanitized" version of a phrase that doesn't have any spaces, punctuation, or uppercase letters in it. This method can be useful when "strict mode" is off."""
 
+    newexpr = phrase.lower()
     newexpr = phrase.replace('.', '')
     newexpr = phrase.replace(',', '')
     newexpr = phrase.replace(';', '')
@@ -36,61 +37,39 @@ def sanitize(phrase, newexpr):
     newexpr = phrase.replace('!', '')
     newexpr = phrase.replace('?', '')
     return newexpr
-    """
-    for l in phrase:
-            if l != " " and l != "," and l != "." and l != "'":
-                newexpr += l
-    """
 
 def isPalindrome(phrase):
     """
     a boolean method isPalindrome(phrase) that takes a phrase as a parameter and returns true if the phrase is a palindrome, and false if it isn't. This method should use a Deque object to check the expression, and return True if the expression entered is a valid palindrome.
     """
-    try:
-        if strict_mode:
-            b = True
-    except:
-        b = False
-    even = False
-    expr = ""
+    if strict_mode:
+        expr = sanitize(phrase)
+    else: 
+        expr = phrase
     #when in strict mode, must 
+    """
     if b == False:
         expr = sanitize(phrase, expr)
-        
+        print(expr)
+        input()
     else:
         expr = phrase
-
-    if (len(phrase)%2 == 0):
-        even = True
-    i = 0
-    s = Deque()
+    """
+    #go through checkTHis 
+    d = Deque()
     for l in expr:
         # going through each letter in the expression 
-        letter = l.lower()
-        
-        half = len(expr)/2    
-        
-        if i < int(half):
-            
-            s.add_rear(letter)
-            i+=1
-        elif even == True and i >= int(half):
-            pal = s.remove_rear()
-            #print(" palindrome " + letter)
-            if(pal != letter):
-                return False
-            i+=1
-        elif even == False and i > int(half):
-            #print(" palindrome " + letter)
-            pal = s.remove_rear()
-            
-            if(pal != letter):
-                return False
-            i+=1
-        else:
-            i+=1
 
-    return s.is_empty()
+        d.addRear(l)
+
+        while len(d.size()) > 1:
+            # pop off while still have items 
+            if d.remove_rear() != d.remove_front():
+                return False #not a palindrome
+            #keep going 
+               
+    return True
+
 
 def main():
     print("Running the palindrome checker!")
