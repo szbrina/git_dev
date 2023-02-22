@@ -89,14 +89,12 @@ class Deque(object):
     def add_front(self, item):
         self.deque.insert(0, item)
 
-
     def remove_front(self):
         if (len(self.deque) > 0):
             return self.deque.pop()
 
     def remove_rear(self):
-        if (len(self.deque) > 0):
-            return self.deque.pop(-1)
+        return self.deque.pop()
 
     #adds to the tailend/rearend
     def add_rear(self, item):

@@ -59,16 +59,16 @@ def isPalindrome(phrase):
             s.add_rear(letter)
             i+=1
         elif even == True and i >= int(half):
-            phr = s.remove_rear()
+            pal = s.remove_rear()
             
-            if(phr != letter):
+            if(pal != letter):
                 return False
             i+=1
         elif even == False and i > int(half):
             #print(" Lol " + letter)
-            phr = s.remove_rear()
+            pal = s.remove_rear()
             
-            if(phr != letter):
+            if(pal != letter):
                 return False
             i+=1
         else:
