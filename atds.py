@@ -105,19 +105,45 @@ class Deque(object):
         return len(self.deque)
 
     def is_empty(self):
-        return len(self.deque()) == 0
+        return len(self.deque) == 0
     
     def __repr__(self):
         return "Deque" + str(self.deque)
 
-        
-""" 
+class Node(object):
+    # initalize 
+    def __init__(self, data): 
+        self.data = data
+        self.next = None
+        # want to set to none because you want to check if the next thing that we are poitning to is none or not (that way we know if we're at the end pf the unordered list or not)
+        #unordered in the sense that it's not sorted!
+        # this doesn't necessarily differ from a list, but it's unique in that it's our list with data values that "we" established... our specific datatypes, that is
+    
+    def get_data(self):
+        return self.data
+    
+    def set_data(self, new_data):
+        self.data = new_data
+
+    def get_next(self):
+        return self.next
+
+    def set_next(self, new_node):
+        self.next = new_node
+
+    def __repr__(self):
+        return "Node[data=" + str(self.data) + ",next=" + str(self.next) + "]"
+
+
+    
+
+
+
 def main():
-   #tester for the class 
+   # optional tester instructons here
+   pass
 
 
 if __name__ == "__main__":
     main()
 
-
-"""
